@@ -17,6 +17,9 @@ app.use(cors({
     credentials:true,
 }))
 
+app.get("/",(req,res)=>{
+    res.send("Page Working fine")
+})
 
 dotenv.config({
     path:"./config.env"
