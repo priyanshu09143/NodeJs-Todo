@@ -12,7 +12,7 @@ app.use(cookieParser())
 app.use(UserRoutes)
 app.use(TaskRoutes)
 app.use(cors({
-    origin:[process.env.FRONTEND],
+    origin:[process.env.FRONTEND_URI],
     methods: [ "GET", "POST", "PUT","DELETE"],
     credentials:true,
 }))
