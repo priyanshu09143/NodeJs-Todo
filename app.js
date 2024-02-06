@@ -1,4 +1,4 @@
-import express  from "express";
+import express from "express";
 import dotenv from 'dotenv'
 import UserRoutes from "./routes/user.js";
 import cookieParser from "cookie-parser";
@@ -9,19 +9,20 @@ export const app = express();
 
 app.use(express.json())
 app.use(cookieParser())
+app.use(cors({
+    origin: [process.env.FRONTEND],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+}));
 app.use(UserRoutes)
 app.use(TaskRoutes)
-app.use(cors({
-    origin:[process.env.FRONTEND_URI],
-    methods: [ "GET", "POST", "PUT","DELETE"],
-    credentials:true,
-}))
 
-app.get("/",(req,res)=>{
+
+app.get("/", (req, res) => {
     res.send("Page Working fine")
 })
 
 dotenv.config({
-    path:"./config.env"
+    path: "./config.env"
 })
 
