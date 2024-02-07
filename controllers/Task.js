@@ -1,6 +1,7 @@
 import { Task } from "../models/Task.js"
 
 
+
 export const AddTask = async (req, res,next) => {
 try {
     const { Title, Discription } = req.body
@@ -21,6 +22,8 @@ try {
 }
 
 
+
+
 export const AllTask = async(req ,res ,next)=>{
     try {
         const userID = req.user._id
@@ -33,6 +36,8 @@ export const AllTask = async(req ,res ,next)=>{
       next(error)  
     }
 }
+
+
 
 
 export const IsComplet = async (req,res,next)=>{
@@ -49,6 +54,10 @@ export const IsComplet = async (req,res,next)=>{
     next(error)    
     }
 }
+
+
+
+
 export const IsDelete = async (req,res,next)=>{
     try {
         const task  = await Task.findById(req.params.id)
