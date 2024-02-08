@@ -1,6 +1,5 @@
 import User from "../models/User.js"
 import jwt from "jsonwebtoken"
-
 export const IsAuth= async(req,res,next)=>{
     const {token} = req.cookies
     if(!token){

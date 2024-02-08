@@ -11,7 +11,6 @@ export const login = async (req, res, next) => {
             message: "Invalid Email or Password"
         })
         const PassMatch = await bcrypt.compare(password, UserById.password)
-        console.log(PassMatch)
         if (!PassMatch) {
              return res.status(404).json({
                 success: false,
@@ -50,7 +49,7 @@ export const profile = (req, res, next) => {
     })
 }
 export const logout = (req, res, next) => {
-    res.status(404).cookie("token", "", {
+    res.status(200).cookie("token", "", {
         expires: new Date(0),
         sameSite: process.env.NODE_ENV === "Development" ? "Lax" : "None",
         secure: process.env.NODE_ENV === "Development" ? false : true
